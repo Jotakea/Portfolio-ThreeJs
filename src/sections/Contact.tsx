@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/Contact/ContactExperience";
@@ -27,24 +28,60 @@ const Contact = () => {
         setLoading(true); // Show loading state
 
         try {
-            await emailjs.sendForm(
-                import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-                formRef.current,
-                import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+            await toast.promise(
+                emailjs.sendForm(
+                    import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+                    import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+                    formRef.current,
+                    import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+                ),
+                {
+                    loading: 'Sending message...',
+                    success: () => {
+                        setForm({ name: "", email: "", message: "" });
+                        return 'Message sent successfully! 🎉';
+                    },
+                    error: (err) => {
+                        console.error("EmailJS Error:", err);
+                        return 'Failed to send message. Please try again.';
+                    },
+                }
             );
-
-            // Reset form and stop loading
-            setForm({ name: "", email: "", message: "" });
         } catch (error) {
-            console.error("EmailJS Error:", error); // Optional: show toast
+            toast.error('An unexpected error occurred. Please try again.');
+            console.error("Error:", error);
         } finally {
             setLoading(false); // Always stop loading, even on error
         }
     };
 
     return (
-        <section id="contact" className="flex-center section-padding">
+        <section id="contact" className="flex-center section-padding relative">
+            <Toaster
+                position="bottom-center"
+                toastOptions={{
+                    className: 'bg-gray-900 text-white px-6 py-3 rounded-xl border border-gray-700 shadow-lg',
+                    duration: 4000,
+                    style: {
+                        background: 'rgba(17, 24, 39, 0.9)',
+                        backdropFilter: 'blur(10px)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        color: '#fff',
+                    },
+                    success: {
+                        iconTheme: {
+                            primary: '#10B981',
+                            secondary: '#111827',
+                        },
+                    },
+                    error: {
+                        iconTheme: {
+                            primary: '#EF4444',
+                            secondary: '#111827',
+                        },
+                    },
+                }}
+            />
             <div className="w-full h-full md:px-10 px-5">
                 <TitleHeader
                     title="Get in Touch – Let’s Connect"
