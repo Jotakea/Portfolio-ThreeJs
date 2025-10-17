@@ -4,12 +4,13 @@ import { useEffect } from "react";
 import * as THREE from "three";
 
 const TechIconCardExperience = ({ model }: { model: any }) => {
-    const scene = useGLTF(model.modelPath);
+    const result = useGLTF(model.modelPath);
+    const scene = Array.isArray(result) ? result[0].scene : result.scene;
 
     useEffect(() => {
         if (model.name === "Interactive Developer") {
-            scene.scene.traverse((child) => {
-                if (child.isMesh) {
+            scene.traverse((child) => {
+                if (child instanceof THREE.Mesh) {
                     if (child.name === "Object_5") {
                         child.material = new THREE.MeshStandardMaterial({ color: "white" });
                     }
@@ -49,7 +50,7 @@ const TechIconCardExperience = ({ model }: { model: any }) => {
       */}
             <Float speed={5.5} rotationIntensity={0.5} floatIntensity={0.9}>
                 <group scale={model.scale} rotation={model.rotation}>
-                    <primitive object={scene.scene} />
+                    <primitive object={scene} />
                 </group>
             </Float>
 

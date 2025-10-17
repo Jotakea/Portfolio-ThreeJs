@@ -9,5 +9,4 @@ export default defineConfig({
     tailwindcss(),
   ],
   base: process.env.BASE_PATH || '/Portfolio-ThreeJs'
-
 })
