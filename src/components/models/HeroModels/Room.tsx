@@ -86,10 +86,10 @@ export function Room(props: React.JSX.IntrinsicElements['group']) {
       <EffectComposer>
         <SelectiveBloom
           selection={screens}
-          intensity={1.5}
-          luminanceThreshold={0.2}
-          luminanceSmoothing={0.9}
-          blendFunction={BlendFunction.ADD}
+          intensity={1.5} // Strength of the bloom
+          luminanceThreshold={0.2} // Minimum luminance needed
+          luminanceSmoothing={0.9} // Smooth transition
+          blendFunction={BlendFunction.ADD} // How it blends
         />
       </EffectComposer>
       <mesh
@@ -103,12 +103,11 @@ export function Room(props: React.JSX.IntrinsicElements['group']) {
         material={chairMaterial}
       />
       <mesh geometry={nodes.comp_blinn1_0.geometry} material={compMaterial} />
-      <group ref={screensRef}>
-        <mesh
-          geometry={nodes.emis_lambert1_0.geometry}
-          material={materials.lambert1}
-        />
-      </group>
+      <mesh
+        ref={screensRef}
+        geometry={nodes.emis_lambert1_0.geometry}
+        material={materials.lambert1}
+      />
       <mesh
         geometry={nodes.handls_blinn1_0.geometry}
         material={materials.blinn1}
@@ -211,7 +210,7 @@ export function Room(props: React.JSX.IntrinsicElements['group']) {
         material={materials.phong1}
       />
     </group>
-  )
+  );
 }
 
 useGLTF.preload('/models/optimized-room.glb')

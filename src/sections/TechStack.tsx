@@ -89,6 +89,17 @@ const TechStack = () => {
                         </div>
                     ))} */}
                 </div>
+                <div className="flex-center pt-20">
+                    <a href="https://drive.google.com/file/d/1p3kFklJMV6QYUbQTXDjVO2RLYtsu3yRZ/view?usp=sharing" target="_blank" className="cta-wrapper md:w-80 md:h-16 w-60 h-12">
+                        <div className="cta-button group">
+                            <div className="bg-circle" />
+                            <p className="text">View My CV</p>
+                            <div className="arrow-wrapper">
+                                <img src="/images/arrow-side.svg" alt="arrow" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     );

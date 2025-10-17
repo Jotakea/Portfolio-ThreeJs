@@ -427,7 +427,12 @@ section {
   height: 100%;
   position: absolute;
   overflow: hidden;
-  animation: marquee 60s linear infinite;
+  will-change: transform;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-box.reverse {
+  animation-direction: reverse;
 }
 
 .marquee-item {
@@ -435,12 +440,12 @@ section {
 }
 
 @keyframes marquee {
-  0% {
-    left: 0;
+  from {
+    transform: translateX(0);
   }
 
-  100% {
-    left: -100%;
+  to {
+    transform: translateX(-50%);
   }
 }
 

@@ -12,7 +12,7 @@ const Experience = () => {
     useGSAP(() => {
         // Loop through each timeline card and animate them in
         // as the user scrolls to each card
-        gsap.utils.toArray(".timeline-card").forEach((card) => {
+        gsap.utils.toArray<HTMLElement>(".timeline-card").forEach((card) => {
             // Animate the card coming in from the left
             // and fade in
             gsap.from(card, {
@@ -64,7 +64,7 @@ const Experience = () => {
 
         // Loop through each expText element and animate them in
         // as the user scrolls to each text element
-        gsap.utils.toArray(".expText").forEach((text) => {
+        gsap.utils.toArray<HTMLElement>(".expText").forEach((text) => {
             // Animate the text opacity from 0 to 1
             // and move it from the left to its final position
             // over 1 second with a power2 ease-in-out curve
@@ -143,8 +143,8 @@ const Experience = () => {
                                                     </p>
                                                     <ul className="ms-5 my-5 flex flex-row flex-wrap gap-3 text-white-50">
                                                         {card.skills.map(
-                                                            (skill) => (
-                                                                <div className="hero-badge">
+                                                            (skill, skillIndex) => (
+                                                                <div key={`${card.title}-skill-${skillIndex}`} className="hero-badge">
                                                                     <p>{skill}</p>
                                                                 </div>
                                                             )

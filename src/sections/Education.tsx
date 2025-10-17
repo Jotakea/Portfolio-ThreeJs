@@ -37,7 +37,7 @@ const Education = () => {
 
         // Loop through each edText element and animate them in
         // as the user scrolls to each text element
-        gsap.utils.toArray(".edText").forEach((text) => {
+        gsap.utils.toArray<HTMLElement>(".edText").forEach((text) => {
             // Animate the text opacity from 0 to 1
             // and move it from the left to its final position
             // over 1 second with a power2 ease-in-out curve
@@ -74,35 +74,31 @@ const Education = () => {
                 />
                 <div className="mt-32 relative">
                     <div className="relative z-50 xl:space-y-32 space-y-10">
-                        {education.map((card, index) => (
+                        {education.map((card) => (
                             <div key={card.title} className="exp-card-wrapper">
-                                <div className="xl:w-3/6">
-                                    <div className="timeline-ed-wrapper">
-                                        <div className="timeline-ed" />
-                                        <div className="gradient-line-ed w-1 h-full" />
-                                    </div>
-                                    <div className="flex items-start">
+                                <div className="timeline-ed-wrapper">
+                                    <div className="timeline-ed" />
+                                    <div className="gradient-line-ed w-1 h-full" />
+                                </div>
+                                <div className="flex items-start">
 
-                                        <div className="edText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                                            <div className="timeline-logo ">
-                                                <img alt="logo" />
-                                            </div>
-                                            <div>
-                                                <h1 className="font-semibold text-3xl">{card.title}</h1>
-                                                <h1 className="font-semibold text-2xl my-5 text-white-50">{card.school}</h1>
-                                                <p className="my-5 text-white-50">
-                                                    🗓️&nbsp;{card.date}
-                                                </p>
-                                                <p className="text-[#839CB5] italic">
-                                                    Experience
-                                                </p>
-                                                <p className="ms-5 my-5 flex flex-col gap-3 text-white-50">
-                                                    {card.description}
-                                                </p>
-                                            </div>
+                                    <div className="edText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
+                                        <div className="timeline-logo ">
+                                            <img src={card.imgPath} alt="logo" />
+                                        </div>
+                                        <div>
+                                            <h1 className="font-semibold text-3xl">{card.title}</h1>
+                                            <h1 className="font-semibold text-2xl my-5 text-white-50">{card.school}</h1>
+                                            <p className="my-5 text-white-50">
+                                                🗓️&nbsp;{card.date}
+                                            </p>
+                                            <p className="ms-5 my-5 flex flex-col gap-3 text-white-50">
+                                                {card.description}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         ))}
                     </div>

@@ -84,39 +84,145 @@ const projects = [
   }
 ]
 
-const logoIconsList = [
+const logoIconsList1 = [
   {
-    imgPath: "/images/logos/company/company-logo-1.png",
+    iconName: "SiReact",
+    name: "React Native",
   },
   {
-    imgPath: "/images/logos/company/company-logo-2.png",
+    iconName: "SiNextdotjs",
+    name: "Next.js",
   },
   {
-    imgPath: "/images/logos/company/company-logo-3.png",
+    iconName: "SiVuedotjs",
+    name: "Vue.js",
   },
   {
-    imgPath: "/images/logos/company/company-logo-4.png",
+    iconName: "SiAngular",
+    name: "Angular",
   },
   {
-    imgPath: "/images/logos/company/company-logo-5.png",
+    iconName: "SiSymfony",
+    name: "Symfony",
   },
   {
-    imgPath: "/images/logos/company/company-logo-6.png",
+    iconName: "SiJavascript",
+    name: "JavaScript",
   },
   {
-    imgPath: "/images/logos/company/company-logo-7.png",
+    iconName: "SiTypescript",
+    name: "TypeScript",
   },
   {
-    imgPath: "/images/logos/company/company-logo-8.png",
+    iconName: "SiHtml5",
+    name: "HTML5",
   },
   {
-    imgPath: "/images/logos/company/company-logo-9.png",
+    iconName: "SiCss3",
+    name: "CSS3",
   },
   {
-    imgPath: "/images/logos/company/company-logo-10.png",
+    iconName: "SiTailwindcss",
+    name: "Tailwind CSS",
   },
   {
-    imgPath: "/images/logos/company/company-logo-11.png",
+    iconName: "SiNpm",
+    name: "npm",
+  }
+];
+
+const logoIconsList2 = [
+  {
+    iconName: "SiNodedotjs",
+    name: "Node.js",
+  },
+  {
+    iconName: "SiExpress",
+    name: "Express.js",
+  },
+  {
+    iconName: "SiMongodb",
+    name: "MongoDB",
+  },
+  {
+    iconName: "SiMysql",
+    name: "MySQL",
+  },
+  {
+    iconName: "SiPostgresql",
+    name: "PostgreSQL",
+  },
+  {
+    iconName: "SiPython",
+    name: "Python",
+  },
+  {
+    iconName: "SiGit",
+    name: "Git",
+  },
+  {
+    iconName: "SiDocker",
+    name: "Docker",
+  },
+  {
+    iconName: "SiJenkins",
+    name: "Jenkins",
+  },
+  {
+    iconName: "SiSonarqube",
+    name: "SonarQube",
+  },
+  {
+    iconName: "SiPrometheus",
+    name: "Prometheus",
+  },
+  {
+    iconName: "SiGrafana",
+    name: "Grafana",
+  },
+  {
+    iconName: "SiJira",
+    name: "Jira",
+  },
+  {
+    iconName: "SiFigma",
+    name: "Figma",
+  },
+  {
+    iconName: "SiTypescript",
+    name: "TypeScript",
+  },
+  {
+    iconName: "SiJavascript",
+    name: "JavaScript",
+  },
+  {
+    iconName: "SiHtml5",
+    name: "HTML5",
+  },
+  {
+    iconName: "SiCss3",
+    name: "CSS3",
+  },
+  {
+    iconName: "SiTailwindcss",
+    name: "Tailwind CSS",
+  },
+  {
+    iconName: "SiDjango",
+    name: "Django",
+  },
+  {
+    iconName: "SiQuarkus",
+    name: "Quarkus",
+  },
+  {
+    iconName: "SiNetcore",
+    name: ".NET",
+  },
+  {
+    iconName: "SiSpringboot",
+    name: "Springboot",
   },
 ];
 
@@ -240,14 +346,16 @@ const education = [
   {
     title: "Master’s degree in software engineering",
     date: "September 2023 - present",
+    imgPath: "/images/logos/ed/esprit.png",
     school: "Private Higher School of Engineering and Technology - ESPRIT",
-    description: ""
+    description: "Advancing my expertise in software engineering with a strong focus on scalable systems design, agile development, and real-world application of modern technologies."
   },
   {
     title: "Bachelor's degree in computer systems engineering (IOT / Embedded systems)",
     date: "September 2020- June 2023",
+    imgPath: "/images/logos/ed/issat.png",
     school: "Higher Institute of Applied Sciences and Technology of Kairouan.",
-    description: ""
+    description: "learned the basics of computer systems engineering and its applications in the real world."
   }
 ]
 
@@ -329,7 +437,8 @@ export {
   projects,
   abilities,
   education,
-  logoIconsList,
+  logoIconsList1,
+  logoIconsList2,
   counterItems,
   expCards,
   expLogos,
